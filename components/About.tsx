@@ -78,7 +78,8 @@ export default function About() {
                 transition={{ duration: 0.6 }}
                 data-aos="fade-up"
             >
-                About <span className="gradient-text">Me</span>
+                {/* About <span className="gradient-text">Me</span> */}
+                {/* About Me */}
             </motion.h2>
 
             {/* Skills Section */}

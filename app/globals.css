@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap');
 
+/* JAPAN RAMEN Font - Using a similar blocky/pixelated style font */
+@import url('https://fonts.cdnfonts.com/css/japan-ramen');
+
+/* Brush-style font similar to Sukajan Brush */
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+
 html {
   scroll-behavior: smooth;
 }
@@ -160,9 +166,17 @@ body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
   background: linear-gradient(135deg, #0a192f 0%, #1a2332 100%);
   color: var(--text-secondary);
-  margin: 10px;
+  margin: 0;
   padding: 0;
   scroll-behavior: smooth;
+  min-height: 100vh;
+  cursor: none !important;
+  overflow-x: hidden;
+}
+
+html {
+  cursor: none !important;
+  overflow-x: hidden;
 }
 
 .section {
@@ -221,7 +235,9 @@ nav:hover {
   color: #ccd6f6;
   text-decoration: none;
   font-size: 1.8rem;
-  font-weight: bold;
+  font-weight: 400;
+  font-family: 'JAPAN RAMEN', sans-serif;
+  letter-spacing: 2px;
 }
 
 .nav-links {
@@ -239,6 +255,9 @@ nav:hover {
   color: #ccd6f6;
   text-decoration: none;
   font-size: 1.4rem;
+  font-family: 'JAPAN RAMEN', sans-serif;
+  font-weight: 400;
+  letter-spacing: 1px;
 }
 
 .nav-links li a:hover {
@@ -433,6 +452,7 @@ h1 {
   color: #ffffff;
   font-weight: 700;
   line-height: 1.2;
+  font-family: 'Permanent Marker', cursive;
 }
 
 @media (min-width: 768px) {
@@ -1253,6 +1273,66 @@ h3 {
 .variable-proximity {
   font-family: 'Roboto Flex', sans-serif;
   color: #ffffff !important;
+
+  /* Custom Cursor */
+  .custom-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 2147483647;
+    /* Max Z-Index to stay on top of everything */
+    mix-blend-mode: normal;
+    transition: transform 0.1s ease;
+    will-change: transform;
+  }
+
+  .cursor-svg {
+    width: 27px;
+    height: 30px;
+    transition: all 0.3s ease;
+    filter: drop-shadow(0 0 5px rgba(31, 209, 139, 0.5));
+  }
+
+  /* Cursor states */
+  .custom-cursor.hover .cursor-svg {
+    transform: scale(1.2) rotate(-10deg);
+    filter: drop-shadow(0 0 10px rgba(31, 209, 139, 0.8));
+  }
+
+  .custom-cursor.hover-text .cursor-svg {
+    transform: scale(0.8);
+  }
+
+  /* Hide default cursor on desktop and show only custom cursor */
+  @media (min-width: 768px) {
+    html * {
+      cursor: none !important;
+    }
+
+    /* Ensure no elements override the cursor none */
+    a,
+    button,
+    input,
+    textarea,
+    select,
+    [role="button"],
+    [onclick] {
+      cursor: none !important;
+    }
+  }
+
+  /* Hide custom cursor on mobile and show default cursor */
+  @media (max-width: 767px) {
+    .custom-cursor {
+      display: none !important;
+    }
+
+    html * {
+      cursor: auto !important;
+    }
+  }
+
   font-size: 1.3rem;
   line-height: 1.6;
   font-weight: 700;

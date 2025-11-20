@@ -112,7 +112,8 @@ export default function Hero() {
                         <h1 className="hero-title" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', flexWrap: 'wrap' }}>
                             <BlurText text="Welcome to My" delay={150} animateBy="words" direction="top" className="inline-block mr-2" />
                             {/* Use RotatingText for an animated "Portfolio" OR keep GradientText for Portfolio */}
-                            <GradientText>Portfolio</GradientText>
+                            {/* <GradientText>Portfolio</GradientText> */}
+                            Portfolio
                         </h1>
                     </motion.div>
 
