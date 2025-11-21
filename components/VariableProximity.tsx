@@ -7,7 +7,6 @@ interface VariableProximityProps {
     className?: string;
     fromFontVariationSettings: string;
     toFontVariationSettings: string;
-    containerRef: RefObject<HTMLElement>;
     radius: number;
     falloff?: 'linear' | 'exponential' | 'gaussian';
 }
@@ -17,7 +16,6 @@ export default function VariableProximity({
     className = '',
     fromFontVariationSettings,
     toFontVariationSettings,
-    containerRef,
     radius,
     falloff = 'linear'
 }: VariableProximityProps) {
@@ -76,7 +74,10 @@ export default function VariableProximity({
     };
 
     const updateCharacters = () => {
-        const containerRect = containerRef.current?.getBoundingClientRect();
+        const container = textRef.current; // Use textRef
+        if (!container) return;
+
+        const containerRect = container.getBoundingClientRect();
 
         // Check if all characters are ready
         const allCharsReady = charsRef.current.length === label.length &&
@@ -104,10 +105,10 @@ export default function VariableProximity({
 
     // Use layout effect so we can measure DOM synchronously after paint/layout
     useLayoutEffect(() => {
-        if (!containerRef.current) return;
+        if (!textRef.current) return;
 
         // Initialize mouse position to center of container to avoid "top-left" glitch
-        const rect = containerRef.current.getBoundingClientRect();
+        const rect = textRef.current.getBoundingClientRect();
         mousePos.current = {
             x: rect.width / 2,
             y: rect.height / 2
@@ -115,13 +116,15 @@ export default function VariableProximity({
 
         // Wait a bit longer to ensure all characters are rendered
         setTimeout(() => setIsReady(true), 150);
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [containerRef]);
+    }, []); // Empty dependency array as textRef is stable
+
+    // Use internal ref for container if no external ref is provided (or just always use internal for stability)
+    // We'll use textRef as the container for proximity calculations.
 
     useEffect(() => {
-        if (!isReady || !containerRef.current) return;
+        if (!isReady || !textRef.current) return;
 
-        const container = containerRef.current;
+        const container = textRef.current;
 
         const handleMouseMove = (e: MouseEvent) => {
             if (!container) return;
@@ -161,7 +164,7 @@ export default function VariableProximity({
             }
         };
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [isReady, containerRef, fromFontVariationSettings]);
+    }, [isReady, fromFontVariationSettings]); // Removed containerRef dependency
 
     // Render characters and attach refs
     return (

@@ -150,7 +150,6 @@ export default function Hero() {
                             className="variable-proximity-demo"
                             fromFontVariationSettings="'wght' 400, 'opsz' 9"
                             toFontVariationSettings="'wght' 900, 'opsz' 40"
-                            containerRef={descriptionRef}
                             radius={100}
                             falloff="linear"
                         />
