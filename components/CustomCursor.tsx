@@ -26,8 +26,8 @@ export default function CustomCursor() {
         const pos = { x: 0, y: 0 };
         const mouse = { x: 0, y: 0 };
         const speeds = {
-            cursor: 0.2,
-            hover: 0.15
+            cursor: 0.5, // Increased from 0.2
+            hover: 0.3   // Increased from 0.15
         };
         let currentSpeed = speeds.cursor;
         let animationFrameId: number;

@@ -12,7 +12,7 @@ import VariableProximity from './VariableProximity';
 export default function Hero() {
     const [name, setName] = useState('');
     const fullName = 'Sifat';
-    const professions = ['Web Developer', 'Software Engineer', 'Designer'];
+    const professions = ['Web Developer', 'Software Engineer'];
     const descriptionRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {

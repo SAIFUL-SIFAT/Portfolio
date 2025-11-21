@@ -1,13 +1,14 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import {
     SiCplusplus, SiPython, SiHtml5, SiCss3, SiJavascript, SiPhp, SiBootstrap,
     SiDotnet, SiNestjs, SiNextdotjs,
     SiGit, SiGnubash, SiLinux, SiFigma,
     SiMysql, SiPostgresql
 } from 'react-icons/si';
-import { FaCode } from 'react-icons/fa'; // Generic code icon for Java
+import { FaCode, FaUniversity, FaSchool } from 'react-icons/fa'; // Generic code icon for Java
 
 export default function About() {
     const skillCategories = [
@@ -129,6 +130,7 @@ export default function About() {
 
             {/* Education Section */}
             <motion.h3
+                className="skills-heading"
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
@@ -138,20 +140,37 @@ export default function About() {
                 Education
             </motion.h3>
             <motion.div
-                className="about-section"
+                className="education-grid"
                 variants={containerVariants}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
                 data-aos="fade-up"
             >
-                <motion.p variants={itemVariants}>School: MMHS</motion.p>
-                <motion.p variants={itemVariants}>College: ICD</motion.p>
-                <motion.p variants={itemVariants}>University: AIUB</motion.p>
+                <motion.div className="education-card" variants={itemVariants}>
+                    <div className="edu-icon-wrapper">
+                        <FaUniversity className="edu-icon" />
+                    </div>
+                    <div className="edu-details">
+                        <h4>American International University-Bangladesh</h4>
+                        <p>University</p>
+                    </div>
+                </motion.div>
+
+                <motion.div className="education-card" variants={itemVariants}>
+                    <div className="edu-icon-wrapper">
+                        <FaSchool className="edu-icon" />
+                    </div>
+                    <div className="edu-details">
+                        <h4>Ideal College, Dhanmondi</h4>
+                        <p>College</p>
+                    </div>
+                </motion.div>
             </motion.div>
 
             {/* Experience Section */}
             <motion.h3
+                className="skills-heading"
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
@@ -161,14 +180,28 @@ export default function About() {
                 Experience
             </motion.h3>
             <motion.div
-                className="about-section"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                className="education-grid"
+                variants={containerVariants}
+                initial="hidden"
+                whileInView="visible"
                 viewport={{ once: true }}
-                transition={{ delay: 0.5 }}
                 data-aos="fade-up"
             >
-                <p>No experience yet.</p>
+                <motion.div className="education-card" variants={itemVariants}>
+                    <div className="edu-icon-wrapper" style={{ padding: '5px' }}>
+                        <Image
+                            src="/polygon-logo.png"
+                            alt="Polygon Technology"
+                            width={50}
+                            height={50}
+                            style={{ objectFit: 'contain' }}
+                        />
+                    </div>
+                    <div className="edu-details">
+                        <h4>Polygon Technology</h4>
+                        <p>Software Engineering Intern</p>
+                    </div>
+                </motion.div>
             </motion.div>
         </section>
     );
