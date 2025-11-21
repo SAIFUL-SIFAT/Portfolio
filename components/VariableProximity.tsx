@@ -124,6 +124,7 @@ export default function VariableProximity({
         const container = containerRef.current;
 
         const handleMouseMove = (e: MouseEvent) => {
+            if (!container) return;
             const rect = container.getBoundingClientRect();
             mousePos.current = {
                 x: e.clientX - rect.left,
@@ -132,6 +133,7 @@ export default function VariableProximity({
         };
 
         const handleTouchMove = (e: TouchEvent) => {
+            if (!container) return;
             const touch = e.touches[0];
             if (!touch) return;
             const rect = container.getBoundingClientRect();
@@ -141,29 +143,18 @@ export default function VariableProximity({
             };
         };
 
-        const handleLeave = () => {
-            // reset to center when leaving so the effect gracefully returns to 'from' settings
-            const rect = container.getBoundingClientRect();
-            mousePos.current = { x: rect.width / 2, y: rect.height / 2 };
-            // also set all chars back to 'from' quickly
-            charsRef.current.forEach((el) => {
-                if (el) el.style.fontVariationSettings = fromFontVariationSettings;
-            });
-        };
+        // Listen on window to allow proximity effect to work even when outside the container
+        window.addEventListener('mousemove', handleMouseMove);
+        window.addEventListener('touchmove', handleTouchMove, { passive: true });
 
-        container.addEventListener('mousemove', handleMouseMove);
-        container.addEventListener('touchmove', handleTouchMove, { passive: true });
-        container.addEventListener('mouseleave', handleLeave);
-
-        // start RAF loop (only once)
+        // Start RAF loop
         if (!rafId.current) {
             rafId.current = requestAnimationFrame(updateCharacters);
         }
 
         return () => {
-            container.removeEventListener('mousemove', handleMouseMove);
-            container.removeEventListener('touchmove', handleTouchMove);
-            container.removeEventListener('mouseleave', handleLeave);
+            window.removeEventListener('mousemove', handleMouseMove);
+            window.removeEventListener('touchmove', handleTouchMove);
             if (rafId.current) {
                 cancelAnimationFrame(rafId.current);
                 rafId.current = null;
@@ -174,7 +165,11 @@ export default function VariableProximity({
 
     // Render characters and attach refs
     return (
-        <div ref={textRef} className={`variable-proximity ${className}`}>
+        <div
+            ref={textRef}
+            className={`variable-proximity ${className}`}
+            style={{ fontFamily: '"Roboto Flex", sans-serif' }} // Enforce font family
+        >
             <span className="sr-only">{label}</span>
             <span aria-hidden="true">
                 {label.split('').map((char, index) => (
