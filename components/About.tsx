@@ -84,7 +84,7 @@ export default function About() {
             </motion.h2>
 
             {/* Skills Section */}
-            <motion.h3
+            {/* <motion.h3
                 className="skills-heading"
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
@@ -126,83 +126,66 @@ export default function About() {
                         </div>
                     </motion.div>
                 ))}
-            </div>
+            </div> */}
 
             {/* Education Section */}
-            <motion.h3
-                className="skills-heading"
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.3 }}
-                data-aos="fade-up"
-            >
-                Education
-            </motion.h3>
-            <motion.div
-                className="education-grid"
-                variants={containerVariants}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                data-aos="fade-up"
-            >
-                <motion.div className="education-card" variants={itemVariants}>
-                    <div className="edu-icon-wrapper">
-                        <FaUniversity className="edu-icon" />
-                    </div>
-                    <div className="edu-details">
-                        <h4>American International University-Bangladesh</h4>
-                        <p>University</p>
-                    </div>
-                </motion.div>
+            <div className="experience-section-modern">
+                <div
+                    className="experience-header-modern"
+                    data-aos="fade-up"
+                    data-aos-duration="600"
+                >
+                    <span className="experience-label-modern">✱ MY EDUCATION</span>
+                </div>
 
-                <motion.div className="education-card" variants={itemVariants}>
-                    <div className="edu-icon-wrapper">
-                        <FaSchool className="edu-icon" />
+                <div className="experience-list-modern">
+                    <div
+                        className="experience-item-modern"
+                        data-aos="fade-up"
+                        data-aos-delay="100"
+                        data-aos-duration="600"
+                    >
+                        <div className="experience-company-modern">American International University-Bangladesh</div>
+                        <div className="experience-title-modern">Bachelor of Science in Computer Science</div>
+                        <div className="experience-date-modern">2020 - 2024</div>
                     </div>
-                    <div className="edu-details">
-                        <h4>Ideal College, Dhanmondi</h4>
-                        <p>College</p>
+
+                    <div
+                        className="experience-item-modern"
+                        data-aos="fade-up"
+                        data-aos-delay="200"
+                        data-aos-duration="600"
+                    >
+                        <div className="experience-company-modern">Ideal College, Dhanmondi</div>
+                        <div className="experience-title-modern">Higher Secondary Certificate</div>
+                        <div className="experience-date-modern">2017 - 2019</div>
                     </div>
-                </motion.div>
-            </motion.div>
+                </div>
+            </div>
 
             {/* Experience Section */}
-            <motion.h3
-                className="skills-heading"
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.4 }}
-                data-aos="fade-up"
-            >
-                Experience
-            </motion.h3>
-            <motion.div
-                className="education-grid"
-                variants={containerVariants}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                data-aos="fade-up"
-            >
-                <motion.div className="education-card" variants={itemVariants}>
-                    <div className="edu-icon-wrapper" style={{ padding: '5px' }}>
-                        <Image
-                            src="/polygon-logo.png"
-                            alt="Polygon Technology"
-                            width={50}
-                            height={50}
-                            style={{ objectFit: 'contain' }}
-                        />
+            <div className="experience-section-modern">
+                <div
+                    className="experience-header-modern"
+                    data-aos="fade-up"
+                    data-aos-duration="600"
+                >
+                    <span className="experience-label-modern">✱ MY EXPERIENCE</span>
+                </div>
+
+                <div className="experience-list-modern">
+                    <div
+                        className="experience-item-modern"
+                        data-aos="fade-up"
+                        data-aos-delay="100"
+                        data-aos-duration="600"
+                    >
+                        <div className="experience-company-modern">Polygon Technology</div>
+                        <div className="experience-title-modern">Software Engineering Intern</div>
+                        <div className="experience-date-modern">Jun 2024 - Present</div>
                     </div>
-                    <div className="edu-details">
-                        <h4>Polygon Technology</h4>
-                        <p>Software Engineering Intern</p>
-                    </div>
-                </motion.div>
-            </motion.div>
+                </div>
+            </div>
         </section>
     );
 }

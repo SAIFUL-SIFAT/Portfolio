@@ -73,6 +73,15 @@ export default function Navbar() {
                 </li>
                 <li>
                     <a
+                        href="#skills"
+                        className={activeSection === 'skills' ? 'active' : ''}
+                        onClick={(e) => { e.preventDefault(); scrollToSection('skills'); }}
+                    >
+                        Skills
+                    </a>
+                </li>
+                <li>
+                    <a
                         href="#projects"
                         className={activeSection === 'projects' ? 'active' : ''}
                         onClick={(e) => { e.preventDefault(); scrollToSection('projects'); }}

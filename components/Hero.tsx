@@ -73,7 +73,7 @@ export default function Hero() {
                     >
                         <div className="profile-image-wrapper">
                             <Image
-                                src="/assets/a.jpg"
+                                src="/assets/profilePic.png"
                                 alt="Saiful Sifat"
                                 width={280}
                                 height={280}
@@ -85,7 +85,7 @@ export default function Hero() {
                     </Tilt>
 
                     <motion.div className="hero-cta" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                        <a href="/assets/Resume_Saiful_Alam.pdf" download className="download-link">
+                        <a href="/assets/Md_Shaiful_Alam.pdf" download className="download-link">
                             <button className="button" type="button">
                                 <span className="button__text">Download CV</span>
                                 <span className="button__icon">

@@ -1,52 +1,118 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import ProjectCard from './ProjectCard';
+import { useState } from 'react';
+import { FaExternalLinkAlt } from 'react-icons/fa';
 
 export default function Projects() {
+    const [hoveredProject, setHoveredProject] = useState<number | null>(null);
+
     const projects = [
         {
-            title: 'Online Learning Management System',
-            description: 'A online learning management platform for students, admin, instructor and moderator, where students can enroll in courses, view their progress, and take quizzes. Instructors can create and manage courses, while admins can oversee the entire platform.',
-            link: 'https://github.com/SAIFUL-SIFAT/Online-Learning-Management-System'
+            id: 1,
+            title: 'Online Art Store',
+            tags: ['TypeScript', 'Next.js', 'PostgreSQL', 'Tailwind CSS'],
+            link: 'https://github.com/SAIFUL-SIFAT/Online_Art_Store',
+            image: 'https://images.unsplash.com/photo-1501504905252-473c47e087f8?w=1200&h=800&fit=crop',
         },
         {
-            title: 'Covid-19-Analysis_2020',
-            description: 'A comprehensive data analysis project focusing on the COVID-19 pandemic in 2020, utilizing various data visualization techniques and statistical methods to understand trends, impacts, and patterns of the virus spread.',
-            link: 'https://github.com/SAIFUL-SIFAT/Covid-19-Analysis_2020'
+            id: 2,
+            title: 'Petal - Pearl',
+            tags: ['React', 'Node.js', 'PostgreSQL', 'Tailwind CSS', 'Nest.Js'],
+            link: 'https://github.com/SAIFUL-SIFAT/Petal_-_Pearl',
+            image: '/assets/petalpearl.png',
         },
         {
+            id: 3,
             title: 'Online Bookstore',
-            description: 'A full-stack e-commerce platform for buying and selling books, featuring user authentication, book listings, a shopping cart, and order management. Developed with a focus on a seamless user experience and robust backend functionality.',
-            link: 'https://github.com/SAIFUL-SIFAT/Book_Haven'
+            tags: ['JavaScript', 'C#', 'PostgreSQL', 'HTML', 'CSS'],
+            link: 'https://github.com/SAIFUL-SIFAT/Book_Haven',
+            image: 'https://images.unsplash.com/photo-1495446815901-a7297e633e8d?w=1200&h=800&fit=crop',
         },
         {
+            id: 4,
             title: 'Mini Apple Store',
-            description: 'A Java-based desktop application simulating a mini Apple Store, allowing users to browse products, add items to a cart, and complete a mock purchase. Features include product display, cart management, and basic order processing functionalities.',
-            link: 'https://github.com/SAIFUL-SIFAT/Mini_Apple_Store'
-        }
+            tags: ['Java', 'Swing', 'MySQL'],
+            link: 'https://github.com/SAIFUL-SIFAT/Mini_Apple_Store',
+            image: 'https://images.unsplash.com/photo-1472851294608-062f824d29cc?w=1200&h=800&fit=crop',
+        },
     ];
 
     return (
-        <section id="projects" className="project_section">
-            <motion.h2
-                initial={{ opacity: 0, y: -20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-            >
-                Featured <span className="gradient-text">Projects</span>
-            </motion.h2>
-            <div className="project-cards">
-                {projects.map((project, index) => (
-                    <ProjectCard
-                        key={index}
-                        title={project.title}
-                        description={project.description}
-                        link={project.link}
-                        index={index}
-                    />
-                ))}
+        <section id="projects" className="projects-showcase">
+            <div className="projects-container">
+                <motion.div
+                    className="projects-header"
+                    initial={{ opacity: 0, y: -30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                >
+                    <span className="projects-label">✱ SELECTED PROJECTS</span>
+
+                </motion.div>
+
+                <div className="projects-wrapper">
+                    {/* Image Preview - Right Side (Hidden on Mobile) */}
+                    <div className="projects-image-preview">
+                        {projects.map((project, index) => (
+                            <motion.img
+                                key={project.id}
+                                src={project.image}
+                                alt={project.title}
+                                className="preview-img"
+                                initial={{ opacity: 0 }}
+                                animate={{
+                                    opacity: hoveredProject === index ? 1 : 0,
+                                }}
+                                transition={{ duration: 0.3 }}
+                            />
+                        ))}
+                    </div>
+
+                    {/* Projects List */}
+                    <div className="projects-list-modern">
+                        {projects.map((project, index) => (
+                            <motion.a
+                                key={project.id}
+                                href={project.link}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className={`project-item-modern ${hoveredProject !== null && hoveredProject !== index ? 'dimmed' : ''}`}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.5, delay: index * 0.1 }}
+                                onMouseEnter={() => setHoveredProject(index)}
+                                onMouseLeave={() => setHoveredProject(null)}
+                            >
+                                <div className="project-content-modern">
+                                    <div className="project-number-modern">
+                                        _{String(index + 1).padStart(2, '0')}.
+                                    </div>
+                                    <div className="project-info-modern">
+                                        <h4 className="project-title-modern">
+                                            {project.title}
+                                            <span className="arrow-icon">
+                                                <FaExternalLinkAlt />
+                                            </span>
+                                        </h4>
+                                        <div className="project-tags-modern">
+                                            {project.tags.map((tag, i) => (
+                                                <div key={i} className="tag-item">
+                                                    <span>{tag}</span>
+                                                    {i < project.tags.length - 1 && (
+                                                        <span className="tag-dot"></span>
+                                                    )}
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+                                </div>
+                            </motion.a>
+                        ))}
+                    </div>
+                </div>
             </div>
         </section>
     );

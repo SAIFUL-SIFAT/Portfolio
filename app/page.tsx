@@ -5,6 +5,7 @@ import Loader from '@/components/Loader';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import About from '@/components/About';
+import Skills from '@/components/Skills';
 import Projects from '@/components/Projects';
 import Footer from '@/components/Footer';
 import ScrollToTop from '@/components/ScrollToTop';
@@ -35,6 +36,7 @@ export default function Home() {
       <div id="main-content" style={{ display: isLoading ? 'none' : 'block', position: 'relative', zIndex: 1 }}>
         <Navbar />
         <Hero />
+        <Skills />
         <About />
         <Projects />
         <Footer />

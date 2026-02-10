@@ -1437,7 +1437,7 @@ h3 {
 }
 
 .edu-details h4 {
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: #ffffff;
   margin-bottom: 5px;
   font-weight: 600;
@@ -1447,4 +1447,642 @@ h3 {
   font-size: 0.9rem;
   color: #b8b8b8;
   margin: 0;
+}
+
+/* ============================================
+   MODERN PROJECTS SHOWCASE SECTION
+   ============================================ */
+
+.projects-showcase {
+  padding: 100px 20px;
+  background: transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.projects-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.projects-header {
+  text-align: left;
+  margin-bottom: 80px;
+}
+
+.projects-label {
+  display: inline-block;
+  font-size: 1.1rem;
+  letter-spacing: 3px;
+  color: #64ffda;
+  margin-bottom: 20px;
+  font-weight: 600;
+  text-align: left;
+}
+
+.projects-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.2;
+}
+
+/* ============================================
+   PROJECTS WRAPPER - SPLIT LAYOUT
+   ============================================ */
+
+.projects-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* ============================================
+   IMAGE PREVIEW - RIGHT SIDE
+   ============================================ */
+
+.projects-image-preview {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 350px;
+  aspect-ratio: 3/4;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .projects-image-preview {
+    display: block;
+  }
+}
+
+@media (min-width: 1280px) {
+  .projects-image-preview {
+    width: 450px;
+  }
+}
+
+.preview-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.5s ease;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+/* ============================================
+   PROJECTS LIST - LEFT SIDE
+   ============================================ */
+
+.projects-list-modern {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+}
+
+@media (min-width: 1280px) {
+  .projects-list-modern {
+    max-width: 750px;
+  }
+}
+
+.project-item-modern {
+  display: block;
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.project-item-modern:first-child {
+  padding-top: 0;
+}
+
+.project-item-modern:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+/* Dimming effect for non-hovered items */
+.project-item-modern.dimmed {
+  opacity: 0.3;
+}
+
+.project-item-modern:hover {
+  opacity: 1 !important;
+}
+
+/* ============================================
+   PROJECT CONTENT
+   ============================================ */
+
+.project-content-modern {
+  display: flex;
+  gap: 20px;
+}
+
+@media (min-width: 768px) {
+  .project-content-modern {
+    gap: 40px;
+  }
+}
+
+.project-number-modern {
+  font-family: 'Roboto Flex', monospace;
+  font-size: 1.2rem;
+  color: #64748b;
+  font-weight: 700;
+  min-width: 50px;
+  flex-shrink: 0;
+}
+
+.project-info-modern {
+  flex: 1;
+}
+
+/* ============================================
+   PROJECT TITLE WITH GRADIENT
+   ============================================ */
+
+.project-title-modern {
+  font-size: 1.5rem;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin: 0;
+  line-height: 1.2;
+  font-family: 'JAPAN RAMEN', sans-serif;
+  letter-spacing: 1px;
+
+  /* Gradient setup */
+  background: linear-gradient(to right,
+      #667eea 0%,
+      #667eea 50%,
+      #ffffff 50%,
+      #ffffff 100%);
+  background-size: 200% 100%;
+  background-position: 100% 0;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+
+  transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media (min-width: 480px) {
+  .project-title-modern {
+    font-size: 1.8rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .project-title-modern {
+    font-size: 2.2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .project-title-modern {
+    font-size: 2.5rem;
+  }
+}
+
+.project-item-modern:hover .project-title-modern {
+  background-position: 0% 0;
+}
+
+/* ============================================
+   ARROW ICON
+   ============================================ */
+
+.arrow-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+@media (min-width: 768px) {
+  .arrow-icon {
+    font-size: 1.2rem;
+  }
+}
+
+.project-item-modern:hover .arrow-icon {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ============================================
+   TECHNOLOGY TAGS
+   ============================================ */
+
+.project-tags-modern {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 12px;
+  font-size: 0.75rem;
+  color: #64748b;
+}
+
+@media (min-width: 768px) {
+  .project-tags-modern {
+    font-size: 0.85rem;
+  }
+}
+
+.tag-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.tag-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 768px) {
+  .projects-showcase {
+    padding: 60px 15px;
+  }
+
+  .projects-header {
+    margin-bottom: 50px;
+  }
+
+  .projects-title {
+    font-size: 2.5rem;
+  }
+
+  .projects-label {
+    font-size: 1rem;
+    letter-spacing: 2px;
+  }
+
+  .project-item-modern {
+    padding: 15px 0;
+  }
+
+  .project-content-modern {
+    gap: 15px;
+  }
+
+  .project-number-modern {
+    font-size: 1rem;
+    min-width: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .projects-title {
+    font-size: 2rem;
+  }
+
+  .project-title-modern {
+    font-size: 1.3rem;
+  }
+
+  .project-tags-modern {
+    font-size: 0.7rem;
+    gap: 8px;
+  }
+
+  .tag-dot {
+    width: 6px;
+    height: 6px;
+  }
+}
+
+/* ============================================
+   MODERN SKILLS SECTION
+   ============================================ */
+
+.skills-section-modern {
+  padding: 100px 20px;
+  background: transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.skills-container-modern {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.skills-header-modern {
+  text-align: left;
+  margin-bottom: 80px;
+}
+
+.skills-label-modern {
+  display: inline-block;
+  font-size: 1.1rem;
+  letter-spacing: 3px;
+  color: #64ffda;
+  margin-bottom: 20px;
+  font-weight: 600;
+  text-align: left;
+}
+
+.skills-title-modern {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.2;
+}
+
+/* ============================================
+   SKILLS GRID LAYOUT
+   ============================================ */
+
+.skills-grid-modern {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+.skill-category-modern {
+  position: relative;
+}
+
+.category-title-modern {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #64748b;
+  margin: 0 0 30px 0;
+  letter-spacing: 2px;
+  font-family: 'Roboto Flex', monospace;
+  text-transform: uppercase;
+}
+
+/* ============================================
+   SKILL BADGES
+   ============================================ */
+
+.category-skills-modern {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  align-items: center;
+}
+
+.skill-badge-modern {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.skill-badge-modern:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(102, 126, 234, 0.3);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.skill-badge-icon {
+  font-size: 1.5rem;
+  transition: transform 0.3s ease;
+}
+
+.skill-badge-modern:hover .skill-badge-icon {
+  transform: scale(1.1);
+}
+
+.skill-badge-name {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #e6e6e6;
+  letter-spacing: 0.5px;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 768px) {
+  .skills-section-modern {
+    padding: 60px 15px;
+  }
+
+  .skills-header-modern {
+    margin-bottom: 50px;
+  }
+
+  .skills-title-modern {
+    font-size: 2.5rem;
+  }
+
+  .skills-label-modern {
+    font-size: 1rem;
+    letter-spacing: 2px;
+  }
+
+  .skills-grid-modern {
+    gap: 40px;
+  }
+
+  .category-title-modern {
+    font-size: 1rem;
+    margin-bottom: 20px;
+  }
+
+  .category-skills-modern {
+    gap: 10px;
+  }
+
+  .skill-badge-modern {
+    padding: 10px 16px;
+  }
+
+  .skill-badge-icon {
+    font-size: 1.3rem;
+  }
+
+  .skill-badge-name {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .skills-title-modern {
+    font-size: 2rem;
+  }
+
+  .category-title-modern {
+    font-size: 0.9rem;
+  }
+
+  .skill-badge-modern {
+    padding: 8px 14px;
+  }
+
+  .skill-badge-icon {
+    font-size: 1.2rem;
+  }
+
+  .skill-badge-name {
+    font-size: 0.8rem;
+  }
+}
+
+/* ============================================
+   MODERN EXPERIENCE/EDUCATION SECTION
+   ============================================ */
+
+.experience-section-modern {
+  padding: 80px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.experience-header-modern {
+  margin-bottom: 60px;
+  text-align: left;
+}
+
+.experience-label-modern {
+  display: inline-block;
+  font-size: 1.1rem;
+  letter-spacing: 3px;
+  color: #64ffda;
+  font-weight: 600;
+  text-transform: uppercase;
+  text-align: left;
+}
+
+.experience-list-modern {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  text-align: left;
+}
+
+.experience-item-modern {
+  position: relative;
+  padding-bottom: 30px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  text-align: left;
+}
+
+.experience-item-modern:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.experience-company-modern {
+  font-size: 1.3rem;
+  color: #64748b;
+  margin-bottom: 10px;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+  text-align: left;
+}
+
+.experience-title-modern {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 15px 0;
+  line-height: 1.2;
+  font-family: 'JAPAN RAMEN', sans-serif;
+  letter-spacing: 1px;
+  text-align: left;
+}
+
+.experience-date-modern {
+  font-size: 1rem;
+  color: #64748b;
+  font-weight: 400;
+  text-align: left;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 768px) {
+  .experience-section-modern {
+    padding: 60px 15px;
+  }
+
+  .experience-header-modern {
+    margin-bottom: 40px;
+  }
+
+  .experience-label-modern {
+    font-size: 1rem;
+    letter-spacing: 2px;
+  }
+
+  .experience-list-modern {
+    gap: 35px;
+  }
+
+  .experience-item-modern {
+    padding-bottom: 25px;
+  }
+
+  .experience-company-modern {
+    font-size: 1rem;
+  }
+
+  .experience-title-modern {
+    font-size: 1.5rem;
+  }
+
+  .experience-date-modern {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .experience-section-modern {
+    padding: 50px 15px;
+  }
+
+  .experience-title-modern {
+    font-size: 1.3rem;
+  }
+
+  .experience-company-modern {
+    font-size: 0.9rem;
+  }
+
+  .experience-date-modern {
+    font-size: 0.8rem;
+  }
 }
