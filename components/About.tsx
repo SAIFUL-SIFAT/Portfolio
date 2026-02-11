@@ -147,7 +147,7 @@ export default function About() {
                     >
                         <div className="experience-company-modern">American International University-Bangladesh</div>
                         <div className="experience-title-modern">Bachelor of Science in Computer Science</div>
-                        <div className="experience-date-modern">2020 - 2024</div>
+                        <div className="experience-date-modern">2022 - Present</div>
                     </div>
 
                     <div
@@ -158,7 +158,7 @@ export default function About() {
                     >
                         <div className="experience-company-modern">Ideal College, Dhanmondi</div>
                         <div className="experience-title-modern">Higher Secondary Certificate</div>
-                        <div className="experience-date-modern">2017 - 2019</div>
+                        <div className="experience-date-modern">2018 - 2012</div>
                     </div>
                 </div>
             </div>
@@ -182,7 +182,7 @@ export default function About() {
                     >
                         <div className="experience-company-modern">Polygon Technology</div>
                         <div className="experience-title-modern">Software Engineering Intern</div>
-                        <div className="experience-date-modern">Jun 2024 - Present</div>
+                        <div className="experience-date-modern">Dec 2025 - Jan 2026</div>
                     </div>
                 </div>
             </div>
