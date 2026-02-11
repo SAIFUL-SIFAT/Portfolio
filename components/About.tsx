@@ -182,7 +182,7 @@ export default function About() {
                     >
                         <div className="experience-company-modern">Polygon Technology</div>
                         <div className="experience-title-modern">Software Engineering Intern</div>
-                        <div className="experience-date-modern">Dec 2025 - Jan 2026</div>
+                        <div className="experience-date-modern">Oct 2025 - Jan 2026</div>
                     </div>
                 </div>
             </div>
