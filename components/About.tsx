@@ -158,7 +158,7 @@ export default function About() {
                     >
                         <div className="experience-company-modern">Ideal College, Dhanmondi</div>
                         <div className="experience-title-modern">Higher Secondary Certificate</div>
-                        <div className="experience-date-modern">2018 - 2012</div>
+                        <div className="experience-date-modern">2018 - 2020</div>
                     </div>
                 </div>
             </div>
